@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script type="text/javascript" src="../src/tiny-event.js"></script>
+        <script type="text/javascript">
+            var eventSystem = new PaperPusher();
+
+            // subscribe
+            eventSystem.subscribe('tick', function(eventData) {
+                console.log('tick = ' + eventData.tickCount);
+            });
+
+            // publish
+            var tickCount = 0;
+            setInterval(function() {
+                tickCount = tickCount+1;
+                eventSystem.publish('tick', {'tickCount':tickCount});
+            }, 3000); 
+
+        </script>
+    </head>
+
+    <body></body>
+</html>

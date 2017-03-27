@@ -21,6 +21,29 @@ window.PaperPusher =  (function () {
         };
 
         /**
+         * Unsubscribe from an event
+         * 
+         * @param {string} _eventName
+         * @param {function} _handlerFunction
+         */
+        this.unsubscribe = function(_eventName, _handlerFunction) {
+            var handlers = subscribers.get(_eventName);
+            if(typeof handlers === 'undefined') {
+                return;
+            }
+
+            for(var i=0; i<handlers.length; i++) {
+                var h = handlers[i];
+                if(h === _handlerFunction) {
+                    handlers.splice(i, 1);
+                    break;
+                }
+            }
+
+            subscribers.set(_eventName, handlers);
+        };
+
+        /**
          * Publish an event
          * 
          * @param {string} _eventName

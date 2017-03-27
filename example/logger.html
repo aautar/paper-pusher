@@ -1,21 +1,28 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <script type="text/javascript" src="../src/tiny-event.js"></script>
+        <script type="text/javascript" src="../src/paper-pusher.js"></script>
         <script type="text/javascript">
             var eventSystem = new PaperPusher();
 
             // subscribe
-            eventSystem.subscribe('tick', function(eventData) {
+            var subFunc = function(eventData) {
                 console.log('tick = ' + eventData.tickCount);
-            });
+            };
+
+            eventSystem.subscribe('tick', subFunc);
 
             // publish
             var tickCount = 0;
             setInterval(function() {
                 tickCount = tickCount+1;
                 eventSystem.publish('tick', {'tickCount':tickCount});
-            }, 3000); 
+
+                if(tickCount === 9) {
+                    eventSystem.unsubscribe('tick', subFunc);
+                }
+
+            }, 500); 
 
         </script>
     </head>

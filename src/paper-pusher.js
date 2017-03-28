@@ -53,7 +53,7 @@ window.PaperPusher =  (function () {
             var handlers = subscribers.get(_eventName);
             if(handlers) {
                 handlers.forEach(function(_h) {
-                    _h(_eventData);
+                    setTimeout(function() { _h(_eventData); }, 0);
                 });
             }
         };

@@ -1,6 +1,6 @@
 {
   "name": "paper-pusher",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "main": "src/paper-pusher.js",
   "repository": "https://github.com/aautar/paper-pusher.git",
   "author": "Avishkar Autar <aautar@digital-radiation.com>",

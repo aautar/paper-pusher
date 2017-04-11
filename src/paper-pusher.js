@@ -1,4 +1,4 @@
-window.PaperPusher =  (function () {
+PaperPusher =  (function () {
 
     var subscribers = new Map();
 
@@ -62,3 +62,7 @@ window.PaperPusher =  (function () {
     return construct;
     
 })();
+
+if (typeof module !== 'undefined' && module.exports) {
+    module.exports = PaperPusher;
+}

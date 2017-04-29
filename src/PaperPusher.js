@@ -48,12 +48,17 @@ PaperPusher =  (function () {
          * 
          * @param {string} _eventName
          * @param {*} _eventData
+         * @param {boolean} _deferrable
          */
-        this.publish = function(_eventName, _eventData) {
+        this.publish = function(_eventName, _eventData, _deferrable) {
             var handlers = subscribers.get(_eventName);
             if(handlers) {
                 handlers.forEach(function(_h) {
-                    setTimeout(function() { _h(_eventData); }, 0);
+                    if(_deferrable) {
+                        _h(_eventData);
+                    } else {
+                        setTimeout(function() { _h(_eventData); }, 0);
+                    }
                 });
             }
         };

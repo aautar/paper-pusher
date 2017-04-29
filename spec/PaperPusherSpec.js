@@ -1,5 +1,5 @@
 describe("PaperPusher", function() {
-  var PaperPusher = require('../src/paper-pusher.js');
+  var PaperPusher = require('../src/PaperPusher.js');
 
   jasmine.clock().install();
   

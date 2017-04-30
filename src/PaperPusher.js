@@ -55,9 +55,9 @@ PaperPusher =  (function () {
             if(handlers) {
                 handlers.forEach(function(_h) {
                     if(_deferrable) {
-                        _h(_eventData);
-                    } else {
                         setTimeout(function() { _h(_eventData); }, 0);
+                    } else {
+                        _h(_eventData);
                     }
                 });
             }

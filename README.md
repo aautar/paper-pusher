@@ -1,17 +1,32 @@
 # paper-pusher
 
-Small pub/sub messaging component
+Tiny pub/sub messaging component with no dependencies.
+
+## Install
+
+```bash
+npm install paper-pusher
+```
+
+## Importing
+PaperPusher can be consumed via importing the ES module:
+```javascript
+import { PaperPusher } from 'paper-pusher'
+```
+
+Alternatively, a minified distribution file, for use in all modern browsers is available at `dist/paper-pusher.min.js`
+
 
 ## Initialize
 
 ```javascript
-var eventSystem = new PaperPusher();
+const eventSystem = new PaperPusher();
 ```
 
 ## Publish
 
 ```javascript
-var eventData = {};
+const eventData = {};
 eventSystem.publish('event-name', eventData);
 ```
 

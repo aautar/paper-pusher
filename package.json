@@ -1,6 +1,6 @@
 {
   "name": "paper-pusher",
-  "version": "1.1.2",
+  "version": "0.0.0",
   "type": "module",
   "main": "src/PaperPusher.js",
   "repository": "https://github.com/aautar/paper-pusher.git",

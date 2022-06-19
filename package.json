@@ -5,5 +5,9 @@
   "main": "src/PaperPusher.js",
   "repository": "https://github.com/aautar/paper-pusher.git",
   "author": "Avishkar Autar <aautar@digital-radiation.com>",
-  "license": "MIT"
+  "license": "MIT",
+  "scripts": {
+    "test": "npx jasmine",
+    "build": "npx rollup -c"
+  }  
 }

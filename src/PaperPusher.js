@@ -1,9 +1,7 @@
-PaperPusher =  (function () {
+const PaperPusher =  (function () {
+    const subscribers = new Map();
 
-    var subscribers = new Map();
-
-    var construct = function() {
-
+    const construct = function() {
         /**
          * Subscribe to an event
          * 
@@ -11,7 +9,7 @@ PaperPusher =  (function () {
          * @param {function} _handlerFunction
          */
         this.subscribe = function(_eventName, _handlerFunction) {
-            var handlers = subscribers.get(_eventName);
+            let handlers = subscribers.get(_eventName);
             if(typeof handlers === 'undefined') {
                 handlers = [];
             }
@@ -27,7 +25,7 @@ PaperPusher =  (function () {
          * @param {function} _handlerFunction
          */
         this.unsubscribe = function(_eventName, _handlerFunction) {
-            var handlers = subscribers.get(_eventName);
+            const handlers = subscribers.get(_eventName);
             if(typeof handlers === 'undefined') {
                 return;
             }
@@ -51,7 +49,7 @@ PaperPusher =  (function () {
          * @param {boolean} _deferrable
          */
         this.publish = function(_eventName, _eventData, _deferrable) {
-            var handlers = subscribers.get(_eventName);
+            const handlers = subscribers.get(_eventName);
             if(handlers) {
                 handlers.forEach(function(_h) {
                     if(_deferrable) {
@@ -65,9 +63,6 @@ PaperPusher =  (function () {
     };
 
     return construct;
-    
 })();
 
-if (typeof module !== 'undefined' && module.exports) {
-    module.exports = PaperPusher;
-}
+export { PaperPusher }

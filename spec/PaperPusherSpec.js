@@ -1,6 +1,6 @@
-describe("PaperPusher", function() {
-  var PaperPusher = require('../src/PaperPusher.js');
+import { PaperPusher } from '../src/PaperPusher.js'
 
+describe("PaperPusher", function() {
   jasmine.clock().install();
   
   it("calls and passes correct data to handlers", function() {
